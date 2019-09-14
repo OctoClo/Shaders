@@ -5556,6 +5556,7 @@ GameObject:
   - component: {fileID: 963194230}
   - component: {fileID: 963194229}
   - component: {fileID: 963194232}
+  - component: {fileID: 963194239}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5762,6 +5763,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EffectMaterial: {fileID: 2100000, guid: c6bda80e4f8556e4ea1daabad1a13f11, type: 2}
+--- !u!114 &963194239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87bf7dbfd68e06b45830c33149fd9c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReplacementShader: {fileID: 4800000, guid: 114876c1f6f1c46408d0c49f9247a62c, type: 3}
+  RampTexture: {fileID: 2800000, guid: 0426a5497add6da4a99996f3c7682793, type: 3}
 --- !u!1001 &976347259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11529,7 +11544,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4822e2442b9a1ce48a405e74cd2cc580, type: 2}
+  - {fileID: 2100000, guid: cd625ff7bba43444881b5c97c63f6d2c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
