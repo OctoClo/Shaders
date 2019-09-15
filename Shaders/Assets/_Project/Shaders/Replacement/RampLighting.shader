@@ -2,8 +2,8 @@
 {
     Properties
     {
-        [HideInInspector]_Color ("Color", Color) = (1,1,1,1)
-        [HideInInspector]_MainTex ("Albedo (RGB)", 2D) = "white" {}
+        [HideInInspector] _Color ("Color", Color) = (1,1,1,1)
+        [HideInInspector] _MainTex ("Albedo (RGB)", 2D) = "white" {}
     }
     
     SubShader
@@ -28,9 +28,9 @@
 
         void surf (Input IN, inout SurfaceOutput o)
         {
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
-            o.Albedo = c.rgb;
-            o.Alpha = c.a;
+            fixed4 color = tex2D(_MainTex, IN.uv_MainTex);
+            o.Albedo = color.rgb;
+            o.Alpha = color.a;
         }
 
         float4 LightingCustom(SurfaceOutput s, float3 lightDir, float atten)

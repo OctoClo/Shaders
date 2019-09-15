@@ -1,4 +1,4 @@
-﻿Shader "Custom/Ramp Lighting"
+﻿Shader "Custom/Lighting/Ramp"
 {
     Properties
     {
@@ -16,7 +16,9 @@
         }
         
         CGPROGRAM
+
         #pragma surface surf Custom fullforwardshadows
+        #pragma target 3.0
 
         fixed4 _Color;
         sampler2D _MainTex;
@@ -31,9 +33,10 @@
 
         void surf (Input IN, inout SurfaceOutput o)
         {
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
-            o.Alpha = c.a;
+            fixed4 color = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            o.Albedo = color.rgb;
+            o.Alpha = color.a;
+            o.Emission = _Emission;
         }
 
         float4 LightingCustom(SurfaceOutput s, float3 lightDir, float atten)

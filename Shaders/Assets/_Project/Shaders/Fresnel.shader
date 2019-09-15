@@ -11,7 +11,7 @@
         [Header(Fresnel)]
         _FresnelColor ("Fresnel Color", Color) = (1, 1, 1, 1)
         _FresnelStep ("Fresnel Step", Range(0, 1)) = 0.4
-        _FresnelSmoothness ("Fresnel Smoothness", Range(0, 1)) = 0
+        [IntRange]_FresnelSmoothness ("Fresnel Smoothness", Range(0, 1)) = 0
     }
     SubShader
     {
