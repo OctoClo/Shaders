@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.8566143, g: 0.5726598, b: 0.41056612, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -51,8 +51,8 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 2
@@ -5557,6 +5557,7 @@ GameObject:
   - component: {fileID: 963194229}
   - component: {fileID: 963194232}
   - component: {fileID: 963194239}
+  - component: {fileID: 963194240}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5770,13 +5771,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87bf7dbfd68e06b45830c33149fd9c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ReplacementShader: {fileID: 4800000, guid: 114876c1f6f1c46408d0c49f9247a62c, type: 3}
   RampTexture: {fileID: 2800000, guid: 0426a5497add6da4a99996f3c7682793, type: 3}
+--- !u!114 &963194240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3d38a82a34f6542ad56c2992d54ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReplacementShader: {fileID: 4800000, guid: 0994fc1eda625fd41add6108c9af9b02, type: 3}
+  ShadowColor: {r: 1, g: 0.10703116, b: 0, a: 1}
+  ShadowSteps: 8
+  ShadowSize: 0.239
+  SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+  SpecularSize: 0.109
+  SpecularFalloff: 0.53
 --- !u!1001 &976347259
 PrefabInstance:
   m_ObjectHideFlags: 0
