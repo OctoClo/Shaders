@@ -2,6 +2,8 @@
 {
 	Properties
 	{
+		_Color ("Color", Color) = (1, 1, 1, 1)
+		_ShadowTint ("Shadow Color", Color) = (0, 0, 0, 1)
 		_MainTex ("Diffuse Map", 2D) = "white" {}
         [NoScaleOffset] _NormalTex ("Normal Map", 2D) = "bump" {}
 	}
@@ -38,6 +40,9 @@
 				float3 wBitangent : TEXCOORD3;
 			};
 
+			fixed4 _Color;
+			float3 _ShadowTint;
+
 			sampler2D _MainTex;
 			sampler2D _NormalTex;
             
@@ -56,14 +61,14 @@
 			
 			fixed4 frag (v2f i, fixed facing : VFACE) : SV_Target
 			{
-				fixed4 diffuseTex = tex2D(_MainTex, i.uv);
+				fixed4 diffuseTex = tex2D(_MainTex, i.uv)  * _Color;
                 clip(diffuseTex.a > 0 ? 1 : -1);
                 
                 float3 normalTex = normalize(tex2D(_NormalTex, i.uv) * 2 - 1);
                 normalTex.z *= facing;
 				float3 N = normalize(i.wTangent) * normalTex.r + normalize(i.wBitangent) * normalTex.g + normalize(i.wNormal) * normalTex.b;
-                
-                half3 toonLight = saturate(dot(N, _WorldSpaceLightPos0)) > 0.3 ? _LightColor0 : unity_AmbientSky;
+
+                half3 toonLight = saturate(dot(N, _WorldSpaceLightPos0)) > 0.3 ? _LightColor0 : _ShadowTint;
                 half3 diffuse = diffuseTex * (toonLight);
                 
                 return half4(diffuse, 0);
