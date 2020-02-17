@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DragonShieldToonDissolve
-  m_Shader: {fileID: 4800000, guid: 05c34e9ea88e0e047900e3844f41f356, type: 3}
+  m_Name: Crystal
+  m_Shader: {fileID: 4800000, guid: 45b6657eddfa7de4996268a498322e67, type: 3}
   m_ShaderKeywords: ALPHA
-  m_LightmapFlags: 5
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 2e1d301485bd191438d842f628f320a3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,15 +40,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8163c9d8b58285245b3a9fddfa534be5, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: 6df5f380c7d5a5f458a559f136e27ac4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -63,65 +59,29 @@ Material:
         m_Texture: {fileID: 2800000, guid: 69f65473d989cf841ab0f7ef55621cac, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _RampS:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RampSpecular:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ALPHA: 1
-    - _AUTO: 0
+    - _BumpAmt: 4.8
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DisAmount: 0
-    - _DisLineWidth: 0.08
-    - _DissolveAmount: 0
-    - _DissolveLineExtraWidth: 0.06
-    - _DissolveLineWidth: 0.11
-    - _DissolveSpeed: 1.53
-    - _DissolveWidth: 0.11
     - _DstBlend: 0
-    - _FADE: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _GradientOffset: 1.16
     - _Metallic: 0
     - _Mode: 0
-    - _NoiseScale: 2
     - _OcclusionStrength: 1
-    - _Offset: 2.19
     - _Parallax: 0.02
+    - _RimBrightness: 3
     - _SmoothnessTextureChannel: 0
-    - _SpecOffset: 0.774
-    - _SpecSize: 0.774
-    - _SpecularFadeOffset: 3.2
-    - _SpecularFalloff: 0
     - _SpecularHighlights: 1
-    - _SpecularOffset: 0.5
-    - _SpecularSize: 0.086
     - _SrcBlend: 1
-    - _StepAmount: 4
-    - _StepWidth: 0.116
-    - _Timer: 0.42
-    - _TopBottomOffset: 2.88
     - _UVSec: 0
-    - _VIEW: 0
     - _ZWrite: 1
     m_Colors:
-    - _BottomColor: {r: 0.23, g: 0, b: 0.95, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DisLineColor: {r: 0.030660376, g: 0.101649, b: 0.122641504, a: 1}
-    - _DisLineColorEx: {r: 0.077830195, g: 0.26417363, b: 0.31132078, a: 1}
-    - _DissolveColor: {r: 0.62352943, g: 0.38161674, b: 0.07843135, a: 1}
-    - _DissolveLineColor: {r: 0.3455882, g: 0.83752525, b: 1, a: 1}
-    - _DissolveLineExtraColor: {r: 0.125, g: 0.16724125, b: 1, a: 1}
-    - _Emission: {r: 0, g: 0, b: 0, a: 1}
+    - _BottomColor: {r: 0.3010739, g: 0.076762185, b: 0.6509434, a: 1}
+    - _Color: {r: 0.40970984, g: 0.46560282, b: 0.9339623, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowTint: {r: 0, g: 0.39803684, b: 0.4811321, a: 1}
-    - _SpecularColor: {r: 0.7729619, g: 0.8490566, b: 0.7738493, a: 1}
-    - _TColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TopColor: {r: 0.24876924, g: 0.15263437, b: 0.9245283, a: 1}
