@@ -15,6 +15,15 @@
         _SpecularColor ("Specular Color", Color) = (1, 1, 1, 1)
         _SpecularSize ("Specular Size", Range(0, 1)) = 0.1
         _SpecularFalloff ("Specular Falloff", Range(0, 2)) = 1
+        [Header(Dissolve)]
+        [NoScaleOffset] _NoiseTex ("Dissolve Noise", 2D) = "white" {}
+		_NoiseScale ("Noise Scale", Range(0, 10)) = 1
+        [HDR] _DissolveColor ("Dissolve Color", Color) = (1, 1, 1, 1)
+		_DissolveAmount ("Dissolve Amount", Range(0, 1)) = 0
+		_DissolveWidth ("Dissolve Width", Range(0, 2)) = 0
+        [Toggle(ALPHA)] _ALPHA ("Show facing parts inside alpha?", Float) = 0
+		[Toggle(AUTO)] _AUTO ("Play dissolve automatically?", Float) = 0
+        _DissolveSpeed ("Dissolve Speed", Range(0, 5)) = 1
     }
     SubShader
     {
@@ -23,9 +32,13 @@
             "RenderType" = "Opaque"
         }
         
+        Blend SrcAlpha OneMinusSrcAlpha
+
         CGPROGRAM
 
-        #pragma surface surf Stepped fullforwardshadows
+        #pragma shader_feature AUTO
+        #pragma lighting Stepped exclude_path:prepass
+        #pragma surface surf Stepped fullforwardshadows alphatest:_ALPHA
         #pragma target 3.0
 
         fixed4 _Color;
@@ -42,9 +55,17 @@
         float _SpecularSize;
         float _SpecularFalloff;
 
+        sampler2D _NoiseTex;
+        float _NoiseScale;
+        float4 _DissolveColor;
+        float _DissolveAmount;
+        float _DissolveWidth;
+        float _DissolveSpeed;
+
         struct Input
         {
             float2 uv_MainTex;
+            float3 worldPos;
         };
 
         struct ToonSurfaceOutput
@@ -58,10 +79,22 @@
 
         void surf (Input IN, inout ToonSurfaceOutput o)
         {
+            half4 noise = tex2D(_NoiseTex, IN.worldPos.xy * _NoiseScale);
+            float dissolveAmount = _DissolveAmount;
+#if AUTO
+            dissolveAmount = cos(_Time.y * _DissolveSpeed) * 0.5 + 0.5;
+#endif
+            float3 dissolveLine = step(noise.r - _DissolveWidth, dissolveAmount);
+            float3 noDissolve = float3(1, 1, 1) - dissolveLine;
+
             fixed4 color = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            color.rgb = (dissolveLine * _DissolveColor) + (noDissolve * color.rgb);
+            color.a = step(dissolveAmount, noise.r);
+
             o.Albedo = color.rgb;
             o.Alpha = color.a;
-            o.Emission = _Emission;
+            
+            o.Emission = _Emission + dissolveLine * _DissolveColor;
             o.Specular = _SpecularColor;
         }
 
@@ -86,6 +119,7 @@
             lightIntensity = saturate(lightIntensity);
 
             /** Shadows **/
+
 #ifdef USING_DIRECTIONAL_LIGHT
             float attenuationChange = fwidth(shadowAttenuation) * 0.5;
             float shadow = smoothstep(0.5 - attenuationChange, 0.5 + attenuationChange, shadowAttenuation);
