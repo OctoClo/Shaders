@@ -1,4 +1,4 @@
-﻿Shader "Custom/Toon/LitSprite"
+﻿Shader "Custom/LolaLitSprite"
 {
 	Properties
 	{

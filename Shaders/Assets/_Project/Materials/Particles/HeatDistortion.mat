@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BumpAmt: 7
+    - _BumpAmt: 10
     - _ORTHO: 1
     - _Shininess: 1
     m_Colors:

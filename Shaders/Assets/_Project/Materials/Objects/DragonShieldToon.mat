@@ -119,3 +119,4 @@ Material:
     - _ShadowTint: {r: 0, g: 0.39803684, b: 0.4811321, a: 1}
     - _SpecularColor: {r: 0.7729619, g: 0.8490566, b: 0.7738493, a: 1}
     - _TColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
